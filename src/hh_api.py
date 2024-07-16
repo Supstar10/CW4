@@ -12,7 +12,7 @@ class HH(GetVacanciesAPI):
     def __init__(self, file_worker):
         self.url = 'https://api.hh.ru/vacancies'
         self.headers = {'User-Agent': 'HH-User-Agent'}
-        self.params = {'text': '', 'page': 0, 'per_page': 100}
+        self.params = {'text': '', 'per_page': 100, "only_with_salary": True}
         self.vacancies = []
         #super().__init__(file_worker)
 
