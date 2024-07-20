@@ -21,8 +21,8 @@ class Vacancy:
         :param other:
         :return: либо true либо false
         """
-
-        return self.salary_from < other.salary_from
+        if isinstance(other, Vacancy):
+            return self.salary_from < other.salary_from
 
 
     def __str__(self):
