@@ -8,7 +8,7 @@ class GetFileABC(ABC):
         self.file_name = file_name
 
     @abstractmethod
-    def get_data(self, file_name):
+    def get_data(self):
         pass
 
     @abstractmethod
@@ -16,5 +16,5 @@ class GetFileABC(ABC):
         pass
 
     @abstractmethod
-    def del_data(self, file_name):
+    def del_data(self):
         pass

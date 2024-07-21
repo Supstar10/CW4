@@ -1,6 +1,6 @@
 import json
 
-from abstract_get_file import GetFileABC
+from src.abstract_get_file import GetFileABC
 
 
 class GetFile(GetFileABC):
@@ -9,23 +9,23 @@ class GetFile(GetFileABC):
         """Конструктор класса"""
         super().__init__(file_name)
 
-    def get_data(self, file_name):
+    def get_data(self):
         """Читает данные из JSON файла и возвращает их."""
 
         try:
-            return json.load(open(self.file_name))
+            return json.load(open(self.file_name, encoding='utf-8'))
         except FileNotFoundError:
             return []
 
-    def add_data(self, file_name, new_data):
+    def add_data(self, new_data):
         """Добавляет новые данные в JSON файл."""
-        data = self.get_data(file_name)
+        data = self.get_data()
         data.extend(new_data)
 
-        with open(file_name, 'w', encoding='utf-8') as file:
+        with open(self.file_name, 'w', encoding='utf-8') as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
 
-    def del_data(self, file_name):
+    def del_data(self):
         """Удаляет данные из файла"""
-        with open(file_name, 'w', encoding='utf-8') as file:
+        with open(self.file_name, 'w', encoding='utf-8') as file:
             json.dump([], file, ensure_ascii=False, indent=4)
