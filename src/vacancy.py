@@ -24,6 +24,7 @@ class Vacancy:
             return self.salary_from < other.salary_from
 
     def __str__(self):
+        """функция вывода"""
         return (
             f"Название вакансии: {self.name}\n"
             f"Место работы: {self.area_name}\n"
