@@ -6,6 +6,7 @@ class Vacancy:
     __slots__ = ("name", "area_name", "salary_from", "salary_to", "alternate_url", "requirement", "responsibility")
 
     def __init__(self, name, area_name, salary_from, salary_to, alternate_url, requirement, responsibility):
+        """конструктор класса"""
         self.name: str = name
         self.area_name: str = area_name
         self.salary_from: int = salary_from
@@ -37,6 +38,7 @@ class Vacancy:
 
     @classmethod
     def from_hh_dict(cls, data):
+        """создание экземпляра класса"""
         salary = data.get("salary")
 
         return cls(
@@ -50,6 +52,7 @@ class Vacancy:
         )
 
     def to_dict(self):
+        """получения словаря с вакансиями"""
         return {"name": self.name,
                 "area_name": self.area_name,
                 "salary_from": self.salary_from,

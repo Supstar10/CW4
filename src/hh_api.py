@@ -10,14 +10,15 @@ class HH(GetVacanciesAPI):
     """
 
     def __init__(self):
-        self.url = 'https://api.hh.ru/vacancies'
-        self.headers = {'User-Agent': 'HH-User-Agent'}
-        self.params = {'text': '', 'per_page': "", "only_with_salary": True}
-        self.vacancies = []
+        """конструктор класса"""
+        self.__url = 'https://api.hh.ru/vacancies'
+        self._headers = {'User-Agent': 'HH-User-Agent'}
+        self._params = {"only_with_salary": True}
 
     def load_vacancies(self, keyword, per_page):
-        self.params['text'] = keyword
-        self.params['per_page'] = per_page
-        response = requests.get(self.url, headers=self.headers, params=self.params)
+        """загрузка вакансий"""
+        self._params['text'] = keyword
+        self._params['per_page'] = per_page
+        response = requests.get(self.__url, headers=self._headers, params=self._params)
         vacancies = response.json()['items']
         return vacancies
