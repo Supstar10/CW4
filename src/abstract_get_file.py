@@ -4,9 +4,6 @@ from abc import ABC, abstractmethod
 class GetFileABC(ABC):
     """Абстрактный класс для записи в файл"""
 
-    def __init__(self, file_name):
-        self.file_name = file_name
-
     @abstractmethod
     def get_data(self):
         pass
